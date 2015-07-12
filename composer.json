@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5",
+        "php": ">=5.4",
         "illuminate/database": "~5.0",
         "bosnadev/database": "~0.1",
         "geo-io/wkb-parser": "~1.0",
