@@ -1,10 +1,10 @@
 {
-    "name": "phaza/laravel-postgis",
+    "name": "gmcmicken/laravel-postgis",
     "description": "Postgis extensions for laravel. Aims to make it easy to work with geometries from laravel models",
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/phaza/laravel-postgres.git"
+            "url": "https://github.com/gmcmicken/laravel-postgres.git"
         }
     ],
     "require": {
