@@ -6,13 +6,13 @@ use Phaza\LaravelPostgis\Exceptions\UnknownWKTTypeException;
 abstract class Geometry implements GeometryInterface, \JsonSerializable
 {
     protected static $wkb_types = [
-        1 => Point::class,
-        2 => LineString::class,
-        3 => Polygon::class,
-        4 => MultiPoint::class,
-        5 => MultiLineString::class,
-        6 => MultiPolygon::class,
-        7 => GeometryCollection::class
+        1 => 'Phaza\LaravelPostgis\Geometries\Point',
+        2 => 'Phaza\LaravelPostgis\Geometries\LineString',
+        3 => 'Phaza\LaravelPostgis\Geometries\Polygon',
+        4 => 'Phaza\LaravelPostgis\Geometries\MultiPoint',
+        5 => 'Phaza\LaravelPostgis\Geometries\MultiLineString',
+        6 => 'Phaza\LaravelPostgis\Geometries\MultiPolygon',
+        7 => 'Phaza\LaravelPostgis\Geometries\GeometryCollection',
     ];
 
     public static function getWKTArgument($value)
@@ -30,19 +30,19 @@ abstract class Geometry implements GeometryInterface, \JsonSerializable
 
         switch (strtoupper($type)) {
             case 'POINT':
-                return Point::class;
+                return self::$wkb_types[1];
             case 'LINESTRING':
-                return LineString::class;
+                return self::$wkb_types[2];
             case 'POLYGON':
-                return Polygon::class;
+                return self::$wkb_types[3];
             case 'MULTIPOINT':
-                return MultiPoint::class;
+                return self::$wkb_types[4];
             case 'MULTILINESTRING':
-                return MultiLineString::class;
+                return self::$wkb_types[5];
             case 'MULTIPOLYGON':
-                return MultiPolygon::class;
+                return self::$wkb_types[6];
             case 'GEOMETRYCOLLECTION':
-                return GeometryCollection::class;
+                return self::$wkb_types[7];
             default:
                 throw new UnknownWKTTypeException('Type was ' . $type);
         }
